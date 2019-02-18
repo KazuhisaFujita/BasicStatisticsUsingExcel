@@ -240,3 +240,8 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
+
+_region_.tex
+auto
+.#text.tex
+.DS_Store

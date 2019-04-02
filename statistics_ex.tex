@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Since : 2018/11/13
-%Update: 2019/04/01
+%Update: 2019/04/02
 % -*- coding: utf-8 -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[12pt, a4j]{jsreport}
@@ -113,17 +113,17 @@ $N$個のデータがあるとするとそのデータのセット$X$は次の�
     \caption{度数分布表}
     \begin{tabular}{c|c}
      階級          & 度数 \\ \hline
-     0 以上9未満   & 0 \\
-     10以上19未満  & 0 \\
-     20以上29未満  & 0 \\
-     30以上39未満  & 1 \\
+     0以上9以下   & 0 \\
+     10以上19以下  & 0 \\
+     20以上29以下  & 0 \\
+     30以上39以下  & 1 \\
      40以上49未満  & 6 \\
      50以上59未満  & 22\\
      60以上69未満  & 43\\
      70以上79未満  & 20\\
      80以上89未満  & 8 \\
      90以上99未満  & 0 \\
-     100           & 0 \\
+     100以上       & 0 \\
      合計          & 100
     \end{tabular}
     \label{tab:hist}
@@ -146,15 +146,33 @@ $N$個のデータがあるとするとそのデータのセット$X$は次の�
 
 \section{Excel実験}
 
+\subsection{データ形式}
+
+データを保存するためのデータ形式は様々ありますが，この演習ではcsvファイルとxslxファイルを用います．
+csvファイルは，Comma-Separated Valesファイルの略です．
+その名の通り，csvファイルの中身は，データがカンマで区切ってあるだけのテキストファイルです．
+単なるテキストファイルですので，どのようなコンピュータを使っている人でも必ず見ることができます．
+csvファイルはExcelなど表計算ソフトが入っていれば，表計算ソフトに関連付けされています．
+ただし，csvファイルはあくまでも単なるテキストファイルですので，表計算ソフトによる関数による自動計算，作成したグラフ，文字の装飾，表の罫線などは保存されません．
+xslxファイルはExcel2007以降で標準的に用いられるファイルです．データだけではなく，関数による自動計算，作成したグラフ，文字の装飾，表の罫線なども保存されます．
+この演習では，データはcsvファイルで提供しますが，演習結果の保存はxslxファイルにしましょう．
+
 \subsection{総和，平均，中央値，分散}
 
-エクセルでの総和の計算は次の手順で行います．
+Excelでの総和の計算は次の手順で行います．
 
 \begin{enumerate}
     \item 総和を表示したいセルを選択する．
     \item ``=sum(''と入力する．
-    \item 総和を計算したいセルをマウスで選択する．そうすると``(''の後ろにセル番号が入力される(図\ref{fig:sum})．また，データのセル番号を直接入力することで，マウスで選択する操作と同様のことができます．例の場合では，セルA1からA5までの総和なので``=sum(A1:A5)''と書きます．\footnote{データを選択する方法はいくつかあります．皆さんの慣れた方法でやってください．また，Excelも自動でいろいろやってくれるので，閉じカッコが保管される場合もあります．臨機応変に対応してください．}
-    \item )を入力する．
+    \item 総和を計算したいセルをマウスで選択する．
+    そうすると``(''の後ろにセル番号が入力される(図\ref{fig:sum})．
+    また，データのセル番号を直接入力することで，マウスで選択する操作と同様のことができます．
+    例の場合では，セルA1からA5までの総和なので``=sum(A1:A5)''と書きます．
+    \footnote{データを選択する方法はいくつかあります．
+      皆さんの慣れた方法でやってください．
+      また，Excelも自動でいろいろやってくれるので，閉じカッコが保管される場合もあります．
+      臨機応変に対応してください．}
+    \item ``)''を入力する．
 \end{enumerate}
 
 \begin{figure}[htbp]
@@ -163,7 +181,12 @@ $N$個のデータがあるとするとそのデータのセット$X$は次の�
   \label{fig:sum}
 \end{figure}
 
-同じやり方で，平均，分散，標準偏差が計算できます．平均なら``SUM''の部分を``MEAN''に変えます．代表値とexcelの関数の関係を表\ref{tab:funcs}に示します\footnote{分散や標準偏差に関連する関数は複数あります．それぞれ意味が違います．その意味はこの講義で扱う範疇を超えているので説明しません．興味がある人は調べてみましょう．}．
+同じやり方で，平均，分散，標準偏差が計算できます．
+平均なら``SUM''の部分を``MEAN''に変えます．代表値とexcelの関数の関係を表\ref{tab:funcs}に示します
+\footnote{分散や標準偏差に関連する関数は複数あります．
+  それぞれ意味が違います．
+  その意味はこの講義で扱う範疇を超えているので説明しません．
+  興味がある人は調べてみましょう．}．
 
 \begin{table}[htb]
     \centering
@@ -181,34 +204,114 @@ $N$個のデータがあるとするとそのデータのセット$X$は次の�
 \end{table}
 
 \paragraph{演習}
-iris1.csvのがく片の長さの平均，分散，標準偏差を求めなさい．
+アヤメデータiris.csv内にあるがく片の長さ，がく片の幅，花びらの長さ，花びらの幅についてそれぞれ平均，中央値，分散，標準偏差を求めなさい．
 
 \paragraph{演習}
-gaussian.csvの平均，中央値を求めなさい．そして，平均値と中央値の差について考察しなさい．ただし，gaussian.csvは，表\ref{tab:sample}の最後のデータを500に置き換えたものです．
+gaussian.csvに書かれている数値の平均と中央値を求めなさい．そして，平均値と中央値の差について考察しなさい．ただし，gaussian.csvは，表\ref{tab:sample}の最後のデータを500に置き換えたものです．
 
 \subsection{度数分布表}
 \label{sec:hist}
 
-データから表のような度数分布表を作るにはどうすればよいでしょうか．
-まず階級を設定します．
-値が0から100の範囲であるとして，それを10刻みに分けるとします．
-つまり，0から9，10から19，20から29，30から39，40から49，50から59，60から69，70から79，80から89，90から99，100
-``FREQUENCY''
+Excelを用い，データ (表\ref{tab:sample})から図\ref{fig:freq}のような度数分布表を作るためには次の手順が必要です．
 
-\footnote{``COUNTIFS''という関数を使っても度数分布表を作ることが可能です．}
+\begin{enumerate}
+    \item まず，図\ref{fig:before_freq}のA列のようにExcelにデータを入力します．
+    \item 次に階級を設定します．
+    今回は，0から9，10から19，20から29，30から39，40から49，50から59，60から69，70から79，80から89，90から99，100以上という階級にします．
+    \item 度数分布表を図\ref{fig:before_freq})に作成します．
+    ここではまだ度数は空欄になっています．
+    \item 図\ref{fig:select_cells_freq}のように度数を入力したいセルを選択します．
+    \item 関数を入力するフォームに``=FREQUENCY(''と入力します．
+    \footnote{``COUNTIFS''という関数を使っても度数分布表を作ることが可能です．}
+    \item データを選択します．そうすると，図\ref{fig:select_data_freq}のようにデータ,があるセル番号が入力されます．
+    \item ``,''を入力したあと，各階級の大きい数値が入力されたセルを選択します．そうすると，図\ref{fig:select_classes_freq}のようにセル番号が入力されます．
+    \item ``)''を入力する．
+    \item ここが重要です．Ctrl + Shift + Enterを押します．
+    \item 合計は先程用いた``sum''を用いて計算します．そうすると，図\ref{fig:before_freq}のような度数分布表が出来上がります．
+\end{enumerate}
+
+
+\begin{figure}[htbp]
+  \includegraphics[width=10cm]{freq.png}
+  \caption{Excelで作成した度数分布表}
+  \label{fig:freq}
+\end{figure}
+
+\begin{figure}[htbp]
+  \includegraphics[width=10cm]{before_freq.png}
+  \caption{Excelで作成した度数分布表}
+  \label{fig:before_freq}
+\end{figure}
+
+
+\begin{figure}[htbp]
+  \includegraphics[width=10cm]{select_cells_freq.png}
+  \caption{度数を入力するセルを選択した状態}
+  \label{fig:select_cells_freq}
+\end{figure}
+
+\begin{figure}[htbp]
+  \includegraphics[width=10cm]{select_data_freq.png}
+  \caption{データを選択した状態}
+  \label{fig:select_classes_freq}
+\end{figure}
+
+\begin{figure}[htbp]
+  \includegraphics[width=10cm]{select_classes_freq.png}
+  \caption{階級を選択した状態}
+  \label{fig:select_classes_freq}
+\end{figure}
 
 \paragraph{演習}
-csvデータから度数分布表を書きなさい．
+
+csvデータから度数分布表を書きなさい．ただし，階級は    としなさい．
 
 \subsection{ヒストグラム}
 
-\ref{sec:hist}節で作成した度数分布表からグラフを作ります．
-グラフで用いる数値は階級と度数です．
-その2つを選択しましょう．
-次に，グラフのヒストグラムをクリックします．
-そうすると，ヒストグラムが出来上がります．
+\ref{sec:hist}節で作成した度数分布表から図\ref{fig:histogram}に示すヒストグラムを作ります．
+横軸は内容，縦軸は度数とします．
+作る手順は次のとおりです．\footnote{ヒストグラムも書き方が多々あるので各自の好みで．}
 
-\footnote{ヒストグラムも書き方が多々あるので各自の好みで．}
+
+\begin{enumerate}
+    \item リボンのInsert (挿入)を選びます．そうすると，グラフや図などの挿入ボタンがたくさん出てきます．
+    \item 図\ref{fig:select_cells_hist}のようにセルを選択します．
+    \item リボンにある棒グラフアイコンの横の``への字の逆''のようなボタンを押し，図\ref{fig:select_barchart_hist}に示す棒グラフボタンを押します．そうするとヒストグラムが出来上がります．
+    \item ヒストグラムの棒の幅を変えたい場合は，ヒストグラムの棒を図\ref{fig:select_bar_hist}のように選択し，図\ref{fig:select_width_hist}のGap Width (要素の間隔)を0にします．
+    そうすると図\ref{fig:histogram}のようなヒストグラムが完成します．
+\end{enumerate}
+
+
+\begin{figure}[htbp]
+    \begin{minipage}{0.5\hsize}
+        \centering
+  \includegraphics[width=6cm]{select_cells_hist.png}
+  \caption{セルを選択した状態}
+  \label{fig:select_cells_hist}
+ \end{minipage}
+ \begin{minipage}{0.5\hsize}
+        \centering
+  \includegraphics[width=6cm]{select_barchart_hist.png}
+  \caption{棒グラフを選択する}
+  \label{fig:select_barchart_hist}
+ \end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{select_bar_hist.png}
+        \caption{棒を選択した状態}
+        \label{fig:select_bar_hist}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{select_width_hist.png}
+        \caption{棒の太さを選ぶ画面}
+        \label{fig:select_width_hist}
+    \end{minipage}
+\end{figure}
+
 
 \paragraph{演習}
 
@@ -217,7 +320,7 @@ csvデータから度数分布表を書きなさい．
 
 \subsection{レポート提出}
 
-レポートはkazuhisa.fujita@komatsu-u.ac.jpへ電子データとして提出する．データ形式はpdfとする．レポートの提出期限は次回の講義日までとする．
+レポートテンプレートを参考にに演習の結果にまとめ，kazuhisa.fujita@komatsu-u.ac.jpへ電子データとして提出しなさい．データ形式はpdfとする．レポートの提出期限は次回の講義日までとします
 
 \section{おまけ}
 
@@ -234,7 +337,7 @@ csvデータから度数分布表を書きなさい．
 
 \section{目的}
 
-エクセルにはデータを解析するための関数が多く用意されている．今回はその一部を用い，データ解析の初歩を学ぶ．
+データを解析おいて重要なデータの可視化(グラフ化)の方法を学ぶ．
 
 \section{原理}
 

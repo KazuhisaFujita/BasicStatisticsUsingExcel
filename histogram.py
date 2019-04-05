@@ -1,6 +1,6 @@
 #---------------------------------------
 #Since : 2019/03/07
-#Update: <2019/03/08>
+#Update: 2019/04/02
 # -*- coding: utf-8 -*-
 #---------------------------------------
 import numpy as np
@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 
 np.random.seed(0)
 x = np.random.normal(65,10, 100).astype(np.int)
+
+#x[99] = 500
 
 for i in range(10):
     for j in range(10):

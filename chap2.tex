@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Since : 2019/04/03
-%Update: 2019/04/05
+%Update: 2019/04/08
 % -*- coding: utf-8 -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -42,7 +42,7 @@
 
 データの値同士の関係性を知りたいときがあります．
 値の関係性を見るために用いられます．
-例として，前回の演習で用いたアヤマのがく片の長さと幅 (iris.csv)の散布図(図\ref{fig:scatter})を示します．
+例として，前回の演習で用いたアヤメのがく片の長さと幅 (iris.csv)の散布図(図\ref{fig:scatter})を示します．
 散布図は関係を見るデータ，例ではアヤメのがく片の長さと幅，をそれぞれ軸とします．
 そして，データの組み合わせ，例ではアヤメのがく片の長さと幅，を点で表します．
 例の散布図を見ると，がく片の長さが長いほど幅が太くなる傾向がありそうなことが分かります．
@@ -90,7 +90,7 @@
 \subsection{}
 
 
-\begin{figure}[htbp]
+\begin{figure}[tb]
     \begin{minipage}{0.5\hsize}
         \centering
         \includegraphics[width=6cm]{chap2/bar1.png}
@@ -131,7 +131,98 @@ csvファイルから折れ線グラフを作りなさい．ただし，横軸�
 
 \subsection{散布図}
 
+散布図も他のグラフの書き方と同じですが，データの列を2つ選ぶ点が異なります．
 
+\begin{enumerate}
+    \item 散布図にしたいデータを選びます (図\ref{fig:scatter_data})．
+    \item リボンの挿入を押します．
+    そして，リボンにある散布図アイコンを押し，図\ref{fig:scatter_menu}に示す散布図ボタンを押します．
+    そうすると図\ref{fig:scatter1}のような散布図が出来上がります．
+    \item 作成した散布図はグラフの右上にデータ点が偏っています．
+    グラフ全体にデータ点を広げるために，軸の値を調整します．
+    はじめに縦軸を変更します (横軸から変更しても良いです)．
+    \begin{enumerate}
+        \item 縦軸をクリックし (選び)，右クリックを押して出てくる軸の書式 (図\ref{fig:scatter_axis}) を選びます．
+        \item ウインドウの右端に出てくる軸の書式設定 (図\ref{fig:scatter_range}) の最小値，最大値を変更します．
+        今回は最小値を2.0，最大値を4.5とします．
+        同様に，横軸の最小値を4.0，最大値を6.0とします．
+        そうすると図\ref{fig:scatter2}のようになります．
+    \end{enumerate}
+    \item 以上の操作で散布図は作れますが，グラフとして少し格好が悪いです．
+    グラフには軸が何をあらわすか分かるようにラベルを付けます．
+    \begin{enumerate}
+        \item 軸にラベルを追加するには，リボンのグラフのデザインをクリックします．
+        \item そして，軸を追加したいグラフを選び，リボンのグラフ要素を追加をクリックします．
+        \item 出てきたメニュー (図\ref{fig:scatter_label}) の軸ラベル第１縦軸を選びます．
+        そうすると，縦軸に``軸ラベル''というラベルが追加されます．
+        \item ``軸ラベル''をクリックし選んだあと，更にクリックすると編集できるようになります．
+        縦軸は``がく片の幅 (cm)''にしましょう\footnote{軸には単位を付けましょう．}．同様の手順でよく軸を``がく片の長さ (cm)''しましょう．
+        そうすると，図\ref{fig:scatter3}のようなグラフができます．
+    \end{enumerate}
+    \item 必ずしもグラフにタイトル付ける必要はありませんが，せっかくなので今回はタイトルを付けます．
+    ``グラフ タイトル''をクリックし選んだあと，更にクリックすると編集できるようになります．
+    その状態で，``がく片の長さと幅の関係''に変更しましょう．
+    以上の操作で，図\ref{fig:scatter}のようなグラフになります．
+\end{enumerate}
+
+
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=5cm]{chap2/scatter_data.png}
+        \caption{セルを選択した状態}
+        \label{fig:scatter_data}
+    \end{minipage}
+ \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/scatter_menu.png}
+        \caption{散布図を選択する}
+        \label{fig:select_barchart_hist}
+    \end{minipage}
+    \\
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/scatter1.png}
+        \caption{未完成な散布図}
+        \label{fig:scatter1}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=4cm]{chap2/scatter_axis.png}
+        \caption{軸のメニュー}
+        \label{fig:scatter_axis}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=4cm]{chap2/scatter_range.png}
+        \caption{軸の範囲の設定}
+        \label{fig:scatter_range}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/scatter2.png}
+        \caption{軸の範囲を変えた散布図}
+        \label{fig:scatter2}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=5cm]{chap2/scatter_label.png}
+        \caption{軸の範囲の設定}
+        \label{fig:scatter_label}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/scatter3.png}
+        \caption{軸のラベルを付けた散布図}
+        \label{fig:scatter3}
+    \end{minipage}
+\end{figure}
 
 
 \paragraph{演習}
@@ -143,19 +234,36 @@ csvファイルから散布図をかきなさい．ただし，横軸は 縦軸�
 
 Excelで相関係数を求めるのは簡単です．前回の総和を求めたのと同じ要領で行います．しかし，今回は2列データがありますので，そこだけ注意しましょう．
 
-CORREL
+\begin{enumerate}
+    \item 相関係数を入れるセルを選択します．
+    \item ``=CORREL(''と入力します．
+    \item 相関係数を求めたいデータの列を2つ選びます．
+    \item ``)''と入力します．そうすると，相関係数が表示されます．
+\end{enumerate}
 
 \paragraph{演習}
 csvデータから相関係数を求めなさい．
 
 \subsection{回帰直線}
 
+先程作成した散布図に回帰直線を追加します．
 
+\begin{enumerate}
+    \item リボンの``グラフのデザイン''を選びます．
+    \item 図\ref{fig:regression_menu}のように，近似曲線の線形予測を選びます．
+    そうすると，図\ref{fig:regression}のような回帰直線がかかれます．軸の範囲が変わった場合は，見やすいように変更しましょう．
+\end{enumerate}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=6cm]{chap2/regression_menu.png}
+    \caption{散布図}
+    \label{fig:regression_menu}
+\end{figure}
 
 \paragraph{演習}
 
-csvデータから散布図と回帰直線をかきなさい．
-
+csvデータから回帰直線のかかれた散布図を作成しなさい．
 
 \subsection{レポート提出}
 

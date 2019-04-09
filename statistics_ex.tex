@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Since : 2018/11/13
-%Update: 2019/04/03
+%Update: 2019/04/09
 % -*- coding: utf-8 -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[12pt, a4j]{jsreport}
@@ -13,6 +13,10 @@
 \renewcommand{\prechaptername}{第}
 \renewcommand{\postchaptername}{回}
 \renewcommand{\thesection}{\arabic{section}}
+
+\newcounter{num_prac}
+\setcounter{num_prac}{0}
+\newcommand{\practice}[1][]{\refstepcounter{num_prac}#1 \noindent\textbf{演習\arabic{num_prac}}\hspace{2mm}}
 
 \title{プログラミング演習\\ -Excelによる統計処理-}
 \author{公立小松大学臨床工学科 \\ 藤田 一寿}

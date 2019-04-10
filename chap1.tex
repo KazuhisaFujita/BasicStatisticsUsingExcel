@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Since : 2019/04/03
-%Update: 2019/04/09
+%Update: 2019/04/10
 % -*- coding: utf-8 -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -34,7 +34,7 @@ $N$個の値からなるデータセットがあるとするとそのデータ�
 \subsection{データ形式}
 
 データを保存するためのデータ形式は様々ありますが，この演習ではcsvファイルとxslxファイルを用います．
-csvファイルは，Comma-Separated Valesファイルの略です．
+csvファイルは，Comma-Separated Valuesファイルの略です．
 その名の通り，csvファイルの中身は，データがカンマで区切ってあるだけのテキストファイルです．
 単なるテキストファイルですので，どのようなコンピュータを使っている人でも必ず見ることができます．
 csvファイルはExcelなど表計算ソフトが入っていれば，表計算ソフトに関連付けされています．
@@ -116,10 +116,10 @@ xslxファイルはExcel2007以降で標準的に用いられるファイルで�
 \end{enumerate}
 
 同じやり方で，平均，分散，標準偏差が計算できます．
-平均なら``SUM''の部分を``MEAN''に変えます．代表値とexcelの関数の関係を表\ref{tab:funcs}に示します
-\footnote{分散や標準偏差に関連する関数は複数あります．
+平均なら``SUM''の部分を``MEAN''に変えます．代表値とExcelの関数の関係を表\ref{tab:funcs}に示します
+\footnote{分散と標準偏差に関連する関数は複数あります．
   それぞれ意味が違います．
-  その意味はこの講義で扱う範疇を超えているので説明しません．
+  それぞれの意味はこの講義で扱う範疇を超えているので説明しません．
   興味がある人は調べてみましょう．}．
 
 \begin{figure}[htbp]
@@ -139,6 +139,7 @@ xslxファイルはExcel2007以降で標準的に用いられるファイルで�
           \hline
           総和     & SUM\\ \hline
           平均     & MEAN\\ \hline
+          中央値   & MEDIAN \\ \hline
           分散     & VAR.P\\ \hline
           標準偏差 & STDEV.P \\ \hline
           最大値   & MAX \\ \hline
@@ -147,13 +148,6 @@ xslxファイルはExcel2007以降で標準的に用いられるファイルで�
         \label{tab:funcs}
     \end{minipage}
 \end{figure}
-
-\practice
-アヤメデータiris.csv内にあるがく片の長さ，がく片の幅，花びらの長さ，花びらの幅についてそれぞれ平均，中央値，分散，標準偏差を求めなさい．
-
-\practice
-gaussian.csvに書かれている数値の平均と中央値を求めなさい．そして，平均値と中央値の差について考察しなさい．ただし，gaussian.csvは，表\ref{tab:sample}の最後のデータを500に置き換えたものです．
-
 
 \section{度数分布表とヒストグラム}
 
@@ -260,9 +254,6 @@ Excelを用い，データ (表\ref{tab:sample})から図\ref{fig:freq}のよう
     \label{fig:select_classes_freq}
 \end{figure}
 
-\practice
-glucoselevel.csvデータから度数分布表を書きなさい．ただし，階級は，60以下，60より大きく80以下，80より大きく100以下，100より大きく120以下，120より大きく140以下，140より大きく160以下，160より大きく180以下，180より大きい としなさい\footnote{http://www.qmss.jp/databank/medcomed/default.htmの血糖値データを用いました．}．
-
 \subsection{ヒストグラム}
 
 \ref{sec:hist}節で作成した度数分布表から図\ref{fig:histogram}に示すヒストグラムを作ります．
@@ -310,9 +301,20 @@ glucoselevel.csvデータから度数分布表を書きなさい．ただし，�
 \end{figure}
 
 
-\practice
-\ref{sec:freq}節の演習で作成した度数分布表に基づきヒストグラムをかけ．
+\section{演習}
 
-\subsection{レポート提出}
+\practice
+アヤメデータiris.csv内にあるがく片の長さ，がく片の幅，花びらの長さ，花びらの幅についてそれぞれ平均，中央値，分散，標準偏差を求めなさい．
+
+\practice
+gaussian.csvに書かれている数値の平均と中央値を求めなさい．そして，平均値と中央値の差について考察しなさい．ただし，gaussian.csvは，表\ref{tab:sample}の最後のデータを500に置き換えたものです．
+
+\practice
+glucoselevel.csvデータから度数分布表を書きなさい．ただし，階級は，60以下，60より大きく80以下，80より大きく100以下，100より大きく120以下，120より大きく140以下，140より大きく160以下，160より大きく180以下，180より大きい としなさい\footnote{http://www.qmss.jp/databank/medcomed/default.htmの血糖値データを用いました．}．
+
+\practice
+ 前演習で作成した度数分布表に基づきヒストグラムをかけ．
+
+\section{レポート提出}
 
 レポートテンプレートを参考にに演習の結果にまとめ，kazuhisa.fujita@komatsu-u.ac.jpへ電子データとして提出しなさい．データ形式はpdfとする．レポートの提出期限は次回の講義日までとします

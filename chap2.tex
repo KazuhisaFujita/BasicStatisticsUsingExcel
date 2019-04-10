@@ -34,7 +34,7 @@
         \makeatletter
         \def\@captype{table}
         \makeatother
-        \caption{代表値とExcelの関数}
+        \caption{}
         \begin{tabular}{|c|c|}
           \hline
           \multicolumn{2}{|c|}{4月の売上高}\\ \hline
@@ -73,7 +73,6 @@
         縦軸は``売上金額 (万円)''にしましょう\footnote{軸には単位を付けましょう．}．
         \item ついでに，グラフタイトルを``4月の売上金額''にしましょう．そうすると図\ref{fig:bar}のようなグラフができます．
     \end{enumerate}
-
 \end{enumerate}
 
 \begin{figure}[tb]
@@ -111,9 +110,11 @@
 
 \paragraph{折れ線グラフとは}
 
-値の時間変化の把握に用いられます．
-大きさを比べる目的で折れ線グラフを使わないようにしましょう．
-
+折れ線グラフは値の時間変化の把握のために用いられます．
+例えば，表\ref{tab:uriage_suii}に示す商品の売上高の推移をグラフ化すると，図\ref{fig:line}のようになります．
+商品の売上が時間とともに変化していることが，グラフ化することで視覚的に分かりやすくなります．
+特に，商品Bと商品Cの売上がいつ，どのように逆転したのかグラフ化することでよく分かります．
+ただし，大きさを比べる目的で折れ線グラフを使わないようにしましょう．
 
 \begin{figure}[htbp]
     \begin{minipage}{0.5\hsize}
@@ -121,36 +122,141 @@
         \makeatletter
         \def\@captype{table}
         \makeatother
-        \caption{代表値とExcelの関数}
-        \begin{tabular}{|c|c|}
+        \caption{}
+        \begin{tabular}{|c|c|c|}
           \hline
-          \multicolumn{2}{|c|}{商品Aの売上推移}\\ \hline
-          月&売上高(万円)\\ \hline
-          4 & 350\\ \hline
-          5 & 340\\ \hline
-          6 & 380\\ \hline
-          7 & 400\\ \hline
-          8 & 450\\ \hline
-          9 & 500\\ \hline
+          \multicolumn{3}{|c|}{売上高(万円)}\\ \hline
+          月& 商品B & 商品C \\ \hline
+          4 &  120 & 50\\ \hline
+          5 &  120 & 55\\ \hline
+          6 &  110 & 75\\ \hline
+          7 &  90  & 80\\ \hline
+          8 &  100 & 11\\ \hline
+          9 &  80  & 12\\ \hline
         \end{tabular}
-        \label{tab:uriage}
+        \label{tab:uriage_suii}
     \end{minipage}
     \begin{minipage}{0.5\hsize}
         \centering
-        \includegraphics[width=6cm]{chap2/bar.png}
-        \caption{棒グラフ}
-        \label{fig:bar}
+        \includegraphics[width=6cm]{chap2/line.png}
+        \caption{折れ線グラフ}
+        \label{fig:line}
     \end{minipage}
 \end{figure}
 
 \subsection{折れ線グラフの作成}
 
-表に示すデータを折れ線グラフにします．横軸を，縦軸をとします．
+表\ref{tab:uriage_suii}に示すデータを折れ線グラフにします．横軸を月，縦軸を売上金額とします．
 
 \begin{enumerate}
-    \item 横軸のデータと縦軸のデータを選びます．
-    \item グラフの散布図の折れ線グラフを選びます．
+    \item 図\ref{line_select_data}のように横軸のデータと縦軸のデータを選びます．値だけではなく商品名まで選択しました．そうするとグラフの線の説明(凡例)まで自動で入力されます
+    \footnote{いつもうまくいくとは限りません．
+      うまく凡例がつかなかったときは，値だけ選択してグラフをかきます．
+      グラフを選択し，リボンのグラフのデザインを選び，グラフデータの選択をクリックします．
+      そうするとたなウインドウが出てくるので，そこの名前の欄に凡例を書き込みます．}．
+    \item グラフの散布図の直線とマーカーを選びます
+    \footnote{折れ線グラフを選んでもグラフはかけますが，軸の範囲が固定など面倒なことになります．今回は散布図にします．}．
+    そうすると図\ref{fig:line1}のようなグラフがかけます．
+    \item 凡例が下だと邪魔ですので右に移動させます．
+    グラフを選択し，リボンのグラフのデザインをクリックします．
+    グラフ要素の追加をクリックし，凡例にカーソルを移動させると，図\ref{fig:line_hanrei}のように凡例の場所を選ぶことができます．
+    そうすると，図\ref{fig:line2}のようになります．
+    \item 図\ref{fig:line2}を見れば分かりますが，線がグラフ全体に広がらず右上に偏っています．
+    軸の値の範囲を変更して，線を全体に広げます．
+    \begin{enumerate}
+        \item 横軸をクリックし (選び)，右クリックを押して出てくる軸の書式設定 (図\ref{fig:line_axis}) を選びます．
+        \item ウインドウの右端に出てくる軸の書式設定 (図\ref{fig:line_range}) の最小値，最大値を変更します．
+        今回は最小値を3.0，最大値を10.0とします．
+        同様のやり方で，縦軸の最小値を40.0，最大値を130.0とします．
+        そうすると図\ref{fig:line3}のようになります．
+    \end{enumerate}
+    \item 軸のラベルを追加します
+    \begin{enumerate}
+        \item 軸にラベルを追加するには，まず，軸を加えるグラフを選び，リボンのグラフのデザインをクリックします．
+        \item リボンのグラフ要素を追加をクリックします．
+        \item 出てきたメニュー (図\ref{fig:line_label}) の軸ラベル第１縦軸を選びます．
+        そうすると，縦軸に``軸ラベル''というラベルが追加されます．
+        \item ``軸ラベル''をクリックし選んだあと，更にクリックすると編集できるようになります．
+        縦軸は``がく片の幅 (cm)''にしましょう\footnote{軸には単位を付けましょう．}．同様の手順でよく軸を``がく片の長さ (cm)''しましょう．
+        そうすると，図\ref{fig:scatter3}のようなグラフができます．
+    \end{enumerate}
+
 \end{enumerate}
+
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/line_select_data.png}
+        \caption{データの選択}
+        \label{fig:line_select_data}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/line_menu.png}
+        \caption{散布図の直線とマーカーを選択する}
+        \label{fig:line_menu}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/line1.png}
+        \caption{作成されたグラフ1}
+        \label{fig:line1}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/line_hanrei.png}
+        \caption{作成されたグラフ}
+        \label{fig:line_hanrei}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/line2.png}
+        \caption{作成されたグラフ2}
+        \label{fig:line2}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/line_axis.png}
+        \caption{軸の書式設定クリックする}
+        \label{fig:line_axis}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=4cm]{chap2/line_range.png}
+        \caption{軸の範囲を変更}
+        \label{fig:line_range}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/line3.png}
+        \caption{作成されたグラフ3}
+        \label{fig:line3}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=4cm]{chap2/line_label.png}
+        \caption{軸のラベルを追加}
+        \label{fig:line_range}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/line3.png}
+        \caption{作成されたグラフ3}
+        \label{fig:line3}
+    \end{minipage}
+\end{figure}
 
 \subsection{散布図}
 

@@ -1,9 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Since : 2019/04/03
-%Update: 2019/04/09
+%Update: 2019/04/10
 % -*- coding: utf-8 -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 \chapter{Excelによる統計処理2}
 \setcounter{num_prac}{0}
@@ -12,33 +11,150 @@
 
 データを解析おいて重要なデータの可視化(グラフ化)の方法を学ぶ．
 
-\section{原理}
-
-\subsection{グラフ}
+\section{グラフ}
 
 データの特徴を視覚的に把握するためにグラフを用います．
 代表的なグラフの一つが前回取り扱ったヒストグラムです．
 ヒストグラム以外にも様々なグラフが存在します．
 今回は，棒グラフ，折れ線グラフ，散布図を取り扱います．
 
-\paragraph{棒グラフ}
+\subsection{棒グラフ}
 
-棒グラフは大きさの比較に用いられます．
-時間変化を把握するのに用いてはいけません．
+\paragraph{棒グラフとは}
+
+棒グラフは値の大きさの比較に用いられます．
+例えば，表\ref{tab:uriage}に示す商品の売上高をグラフ化すると図\ref{fig:bar}のようになります．
+グラフにしたことで，それぞれの商品の売上の大小が視覚的に分かりやすくなります．
+しかし，棒グラフは基本的に時間変化を把握するためには用いません．
+
 
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=6cm]{chap2/bar.png}
-    \caption{棒グラフ}
-    \label{fig:bar}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \makeatletter
+        \def\@captype{table}
+        \makeatother
+        \caption{代表値とExcelの関数}
+        \begin{tabular}{|c|c|}
+          \hline
+          \multicolumn{2}{|c|}{4月の売上高}\\ \hline
+          商品  & 売上高 (万円) \\ \hline
+          商品A & 350 \\ \hline
+          商品B & 120 \\ \hline
+          商品C & 50 \\ \hline
+          商品D & 250 \\ \hline
+        \end{tabular}
+        \label{tab:uriage}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/bar.png}
+        \caption{棒グラフ}
+        \label{fig:bar}
+    \end{minipage}
 \end{figure}
 
-\paragraph{折れ線グラフ}
+\paragraph{棒グラフの作成}
+
+手順は前回のヒストグラムと同じです．表\ref{tab:uriage}に示すデータを棒グラフにしましょう．
+
+\begin{enumerate}
+    \item まず，棒グラフにしたいデータを図\ref{fig:bar1}のように選択します．
+    \item リボンの挿入を押します．
+    そして，リボンにある棒グラフアイコンを押し，図\ref{fig:select_barchart_hist}に示す棒グラフボタンを押します．
+    そうすると，図\ref{fig:bar3}のような棒グラフができます．
+    \item 出来上がったグラフには軸のラベルがありません．軸が何をあらわすか分かるようにラベルを付けます．
+    \begin{enumerate}
+        \item 軸にラベルを追加するには，軸を加えたいグラフをクリックし (グラフが選択された状態で)，リボンのグラフのデザインをクリックします．
+        \item そして，リボンのグラフ要素を追加をクリックします．
+        \item 出てきたメニュー (図\ref{fig:bar_label}) の軸ラベル第１縦軸を選びます．
+        そうすると，縦軸に``軸ラベル''というラベルが追加されます．
+        \item ``軸ラベル''をクリックし選んだあと，更にクリックすると編集できるようになります．
+        縦軸は``売上金額 (万円)''にしましょう\footnote{軸には単位を付けましょう．}．
+        \item ついでに，グラフタイトルを``4月の売上金額''にしましょう．そうすると図\ref{fig:bar}のようなグラフができます．
+    \end{enumerate}
+
+\end{enumerate}
+
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=4cm]{chap2/bar1.png}
+        \caption{データを選択した状態}
+        \label{fig:bar1}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/bar2.png}
+        \caption{棒グラフを選択する}
+        \label{fig:bar2}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/bar3.png}
+        \caption{作成したグラフ}
+        \label{fig:bar3}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/bar_label.png}
+        \caption{軸ラベルを追加する}
+        \label{fig:bar_label}
+    \end{minipage}
+\end{figure}
+
+
+\subsection{折れ線グラフ}
+
+\paragraph{折れ線グラフとは}
 
 値の時間変化の把握に用いられます．
 大きさを比べる目的で折れ線グラフを使わないようにしましょう．
 
-\paragraph{散布図}
+
+\begin{figure}[htbp]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \makeatletter
+        \def\@captype{table}
+        \makeatother
+        \caption{代表値とExcelの関数}
+        \begin{tabular}{|c|c|}
+          \hline
+          \multicolumn{2}{|c|}{商品Aの売上推移}\\ \hline
+          月&売上高(万円)\\ \hline
+          4 & 350\\ \hline
+          5 & 340\\ \hline
+          6 & 380\\ \hline
+          7 & 400\\ \hline
+          8 & 450\\ \hline
+          9 & 500\\ \hline
+        \end{tabular}
+        \label{tab:uriage}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/bar.png}
+        \caption{棒グラフ}
+        \label{fig:bar}
+    \end{minipage}
+\end{figure}
+
+\subsection{折れ線グラフの作成}
+
+表に示すデータを折れ線グラフにします．横軸を，縦軸をとします．
+
+\begin{enumerate}
+    \item 横軸のデータと縦軸のデータを選びます．
+    \item グラフの散布図の折れ線グラフを選びます．
+\end{enumerate}
+
+\subsection{散布図}
+
+\paragraph{散布図とは}
 
 データの値同士の関係性を知りたいときがあります．
 値の関係性を見るために用いられます．
@@ -55,81 +171,7 @@
     \label{fig:scatter}
 \end{figure}
 
-\paragraph{グラフに関する注意}
-
-軸が何であるか必ず書く
-
-\subsection{相関係数}
-
-散布図では，視覚的に2つのデータの関係性を見ることができます．
-しかし，図ではそのデータがどの程度関係しているのか定量的に分かりません．
-定量的に2つのデータの関係を見る場合は相関係数を用います．
-相関係数は次の式で計算されます．
-\begin{equation}
-    \label{eq:1}
-    r = \frac{\frac{1}{N} \sum_{i=1}^N (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\frac{1}{N} \sum_{i=1}^N (x_i - \bar{x})^2} \sqrt{\frac{1}{N} \sum_{i=1}^N(y_i - \bar{y})^2}}
-\end{equation}
-相関係数は直線的な関係かどうかをみることができます．
-相関係数が正の場合は正の相関，負の場合を負の相関と言います．
-正の相関の場合，一方のデータの値が増えれば，もう一方のデータの値も増えるという関係があることが分かります．
-負の相関の場合，一方のデータの値が増えれば，もう一方のデータの値は減るという関係があることが分かります．
-しかし，U字型であったりS字型の関係であった場合は相関係数ではその関係性を定量化することはできません．
-
-\subsection{散布図と回帰直線}
-
-2つデータの値同士の関係を知るために散布図を用いる事ができることを先程述べました．
-図\ref{fig:regression}のように，その関係性を直線で表したものを回帰直線と言います．
-回帰直線は，データの分布を直線に近似したものです．
-もう少し簡単に言えば，2つのデータの関係を直線の式$y=ax+b$に強制的に表したものです\footnote{直線近似の方法は，この講義の範疇を超えているので説明しません．興味がある人は調べてみましょう．}．
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=6cm]{chap2/regression.png}
-    \caption{散布図と回帰直線}
-    \label{fig:regression}
-\end{figure}
-
-\section{演習}
-
-\subsection{}
-
-
-\begin{figure}[tb]
-    \begin{minipage}{0.5\hsize}
-        \centering
-        \includegraphics[width=6cm]{chap2/bar1.png}
-        \caption{}
-        \label{fig:bar1}
-    \end{minipage}
-    \begin{minipage}{0.5\hsize}
-        \centering
-        \includegraphics[width=6cm]{chap2/bar2.png}
-        \caption{}
-        \label{fig:bar2}
-    \end{minipage}
-\end{figure}
-
-
-\subsection{棒グラフ}
-
-手順は前回のヒストグラムと同じです．
-
-\paragraph{演習}
-csvファイルから棒グラフを作りなさい．ただし，横軸は 縦軸は にしなさい．
-
-
-\subsection{折れ線グラフ}
-
-表に示すデータを折れ線グラフにします．
-横軸を，縦軸をとします．
-よく軸のデータと縦軸のデータを選びます．
-グラフの散布図の折れ線グラフを選びます．
-
-\paragraph{演習}
-
-2019年4月8日の小松市の気温データtemp.csvから折れ線グラフを作りなさい．ただし，横軸は時間 (時)，縦軸は気温 ($C^\circle$)にしなさい．
-
-\subsection{散布図}
+\paragraph{散布図の作成}
 
 散布図も他のグラフの書き方と同じですが，データの列を2つ選ぶ点が異なります．
 
@@ -225,11 +267,31 @@ csvファイルから棒グラフを作りなさい．ただし，横軸は 縦�
 \end{figure}
 
 
-\paragraph{演習}
+\subsection{グラフに関する注意}
 
-csvファイルから散布図をかきなさい．ただし，横軸は 縦軸は にしなさい．
+軸が何であるか必ず書く．
 
-\subsection{相関係数}
+
+\section{相関係数}
+
+\paragraph{相関係数とは}
+
+散布図では，視覚的に2つのデータの関係性を見ることができます．
+しかし，図ではそのデータがどの程度関係しているのか定量的に分かりません．
+定量的に2つのデータの関係を見る場合は相関係数を用います．
+相関係数は次の式で計算されます．
+\begin{equation}
+    \label{eq:1}
+    r = \frac{\frac{1}{N} \sum_{i=1}^N (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\frac{1}{N} \sum_{i=1}^N (x_i - \bar{x})^2} \sqrt{\frac{1}{N} \sum_{i=1}^N(y_i - \bar{y})^2}}
+\end{equation}
+相関係数は直線的な関係かどうかをみることができます．
+相関係数が正の場合は正の相関，負の場合を負の相関と言います．
+正の相関の場合，一方のデータの値が増えれば，もう一方のデータの値も増えるという関係があることが分かります．
+負の相関の場合，一方のデータの値が増えれば，もう一方のデータの値は減るという関係があることが分かります．
+しかし，U字型であったりS字型の関係であった場合は相関係数ではその関係性を定量化することはできません．
+
+
+\paragraph{相関係数の計算}
 
 Excelで相関係数を求めるのは簡単です．前回の総和を求めたのと同じ要領で行います．しかし，今回は2列データがありますので，そこだけ注意しましょう．
 
@@ -240,17 +302,31 @@ Excelで相関係数を求めるのは簡単です．前回の総和を求めた
     \item ``)''と入力します．そうすると，相関係数が表示されます．
 \end{enumerate}
 
-\paragraph{演習}
-csvデータから相関係数を求めなさい．
+\section{回帰直線}
 
-\subsection{回帰直線}
+\paragraph{回帰直線とは}
+
+2つデータの値同士の関係を知るために散布図を用いる事ができることを先程述べました．
+図\ref{fig:regression}のように，その関係性を直線で表したものを回帰直線と言います．
+回帰直線は，データの分布を直線に近似したものです．
+もう少し簡単に言えば，2つのデータの関係を直線の式$y=ax+b$に強制的に表したものです\footnote{直線近似の方法は，この講義の範疇を超えているので説明しません．興味がある人は調べてみましょう．}．
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=6cm]{chap2/regression.png}
+    \caption{散布図と回帰直線}
+    \label{fig:regression}
+\end{figure}
+
+\paragraph{回帰直線の作成}
 
 先程作成した散布図に回帰直線を追加します．
 
 \begin{enumerate}
     \item リボンの``グラフのデザイン''を選びます．
     \item 図\ref{fig:regression_menu}のように，近似曲線の線形予測を選びます．
-    そうすると，図\ref{fig:regression}のような回帰直線がかかれます．軸の範囲が変わった場合は，見やすいように変更しましょう．
+    そうすると，図\ref{fig:regression}のような回帰直線がかかれます．
+    軸の範囲が変わった場合は，見やすいように変更しましょう．
 \end{enumerate}
 
 \begin{figure}[htbp]
@@ -260,11 +336,24 @@ csvデータから相関係数を求めなさい．
     \label{fig:regression_menu}
 \end{figure}
 
-\paragraph{演習}
+\section{演習}
 
+\practice
+csvファイルから棒グラフを作りなさい．ただし，横軸は 縦軸は にしなさい．
+
+\practice
+2019年4月8日の小松市の気温データtemp.csvから折れ線グラフを作りなさい．ただし，横軸は時間 (時)，縦軸は気温 (度)にしなさい．
+
+\practice
+csvファイルから散布図をかきなさい．ただし，横軸は 縦軸は にしなさい．
+
+\practice
+csvデータから相関係数を求めなさい．
+
+\practice
 csvデータから回帰直線のかかれた散布図を作成しなさい．
 
-\subsection{レポート提出}
+\section{レポート提出}
 
 レポートはkazuhisa.fujita@komatsu-u.ac.jpへ電子データとして提出する．データ形式はpdfとする．レポートの提出期限は次回の講義日までとする．
 

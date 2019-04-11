@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Since : 2019/04/03
-%Update: 2019/04/10
+%Update: 2019/04/11
 % -*- coding: utf-8 -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -15,10 +15,10 @@ Excelの操作を通し，データ処理の基礎とグラフの作成の仕方
 
 統計や確率は様々な場面で用いられています．
 それはなぜでしょうか．
-一つの目的は，全体の特徴もしくは規則性を捉えるために用いられます．
+一つの理由は，全体の特徴もしくは規則性を捉えるためです．
 皆さんは，大学受験で大学の偏差値や合格者のセンター試験の平均点などを調べたのではないでしょうか．
-偏差値やセンター試験の平均点は統計の結果得られた立派な量です．
-これらの数値は，大学の合格者の手段の特性を表しています．
+偏差値やセンター試験の平均点は立派な統計によって得られた量です．
+これらの数値は，大学の合格者の集団の特性を表しています．
 今後，卒業研究はもちろん就職してからも大量のデータを扱い，集団の特性や規則性を調べることになると思います．
 この演習を通じ，統計の基礎とExcelによる簡単な統計処理を身につけてください．
 
@@ -31,7 +31,7 @@ $N$個の値からなるデータセットがあるとするとそのデータ�
     X = \{x_1, x_2, ..., x_N\}
 \end{equation}
 
-\subsection{データ形式}
+\subsection{データの保存形式}
 
 データを保存するためのデータ形式は様々ありますが，この演習ではcsvファイルとxslxファイルを用います．
 csvファイルは，Comma-Separated Valuesファイルの略です．
@@ -40,17 +40,18 @@ csvファイルは，Comma-Separated Valuesファイルの略です．
 csvファイルはExcelなど表計算ソフトが入っていれば，表計算ソフトに関連付けされています．
 ただし，csvファイルはあくまでも単なるテキストファイルですので，表計算ソフトによる関数による自動計算，作成したグラフ，文字の装飾，表の罫線などは保存されません．
 xslxファイルはExcel2007以降で標準的に用いられるファイルです．データだけではなく，関数による自動計算，作成したグラフ，文字の装飾，表の罫線なども保存されます．
-この演習では，データはcsvファイルで提供しますが，演習結果の保存はxslxファイルにしましょう．
+この演習では，データはcsvファイルで提供します．
+\textbf{演習結果の保存は必ずxslxファイルにしましょう．}
 
-\section{代表値}
+\section{統計量}
 
-\subsection{様々な代表値}
+\subsection{様々な統計量}
 
-例えば，表\ref{tab:sample}に示すデータセットがあったとします．
+例えば，表\ref{tab:sample}に示すデータがあったとします．
 このデータの特徴は何でしょうか．
 といきなり言われても困りますよね．
-データセットの特徴を1つの値で表したいときに用いるのが代表値です．
-今回用いる代表値は，平均，中央値，分散，標準偏差です．
+データの特徴を表す統計学的な方法により求められた量のことを統計量と言います．
+今回用いる統計量は，平均，中央値，分散，標準偏差です\footnote{特に，これらの統計量は基本統計量と呼ばれます．}．
 
 \begin{table}[tb]
     \caption{データ}
@@ -71,7 +72,7 @@ xslxファイルはExcel2007以降で標準的に用いられるファイルで�
 \end{table}
 
 \paragraph{平均}
-平均$\mu$は集団の値の重心を表す最も頻繁に用いられる代表値です．
+平均$\mu$は集団の値の重心を表す最も頻繁に用いられる統計量です．
 平均は次の式で表されます．
 \begin{equation}
     \mu = \frac{1}{N} \sum_{i=1}^{N} x_i
@@ -85,7 +86,8 @@ xslxファイルはExcel2007以降で標準的に用いられるファイルで�
 例のデータの数は奇数でしたので，順番としての中央を決定できましたが，データの数が偶数の場合はどうしたら良いでしょうか．
 例えば，$\{1,3,4,5,7,9\}$のようなデータがあったとすると，ちょうど真ん中の値はありません．このような場合は，真ん中の2つの値，4と5を足して2で割った値，すなわち4.5が中央値となります．
 表\ref{tab:sample}のデータの中央値は65.5です．
-中央値は，平均に対して利点があります．後のほど行う演習で確かめましょう．
+表\ref{tab:sample}のデータの場合は，平均と中央値にあまり差がないので，中央値がある必要がわからないかもしれませんが，中央値は，平均に対して利点があります．
+後のほど行う演習で確かめましょう．
 
 \paragraph{分散と標準偏差}
 分散はデータのばらつき具合を表します．
@@ -97,20 +99,21 @@ xslxファイルはExcel2007以降で標準的に用いられるファイルで�
 表\ref{tab:sample}のデータの分散は約102で標準偏差は約10.1です．
 
 
-\subsection{Excelによる代表値の計算}
+\subsection{Excelによる統計量の計算}
 
-代表値の一つである総和をExcelで計算するときの手順は次のとおりです．
+統計量の一つである総和をExcelで計算計算してみます．
+手順は次のとおりです．
 
 \begin{enumerate}
     \item 総和を入力したいセルを選択する．
     \item ``=sum(''と入力する．
     \item 総和を計算したいセルをマウスで選択する．
-    そうすると``(''の後ろにセル番号が入力される(図\ref{fig:sum})．
+    そうすると``(''の後ろにセル番号が入力されます(図\ref{fig:sum})．
     また，データのセル番号を直接入力することで，マウスで選択する操作と同様のことができます．
     例の場合では，セルA1からA5までの総和なので``=sum(A1:A5)''と書きます．
     \footnote{データを選択する方法はいくつかあります．
-      皆さんの慣れた方法でやってください．
-      また，Excelも自動でいろいろやってくれるので，閉じカッコが保管される場合もあります．
+      皆さんの慣れた方法でやってください．}
+    \footnote{Excelも自動でいろいろやってくれるので，閉じカッコが保管される場合もあります．
       臨機応変に対応してください．}
     \item ``)''を入力する．
 \end{enumerate}
@@ -153,7 +156,7 @@ xslxファイルはExcel2007以降で標準的に用いられるファイルで�
 
 生データを並べただけでは，それが持つ特徴を直感的に理解することは難しいです．
 そこで，データの整理の方法の一つに，度数分布表があります．
-度数分布表は，データの取りうる範囲をいくつかの階級に分け，それぞれ階級にあるデータの数 (度数) を表したものです．
+度数分布表は，データの取りうる範囲をいくつかの階級に分け，それぞれの階級にあるデータの数 (度数) を表したものです．
 表\ref{tab:hist}に度数分布表の例を示します．
 
 この度数分布表を図で表したものがヒストグラム(図\ref{fig:histogram})です．
@@ -164,34 +167,34 @@ xslxファイルはExcel2007以降で標準的に用いられるファイルで�
 
 \begin{figure}[tb]
     \begin{minipage}{0.5\hsize}
-    \centering
-    \caption{度数分布表}
-    \begin{tabular}{c|c}
-     階級          & 度数 \\ \hline
-     0以上9以下   & 0 \\
-     10以上19以下  & 0 \\
-     20以上29以下  & 0 \\
-     30以上39以下  & 1 \\
-     40以上49未満  & 6 \\
-     50以上59未満  & 22\\
-     60以上69未満  & 43\\
-     70以上79未満  & 20\\
-     80以上89未満  & 8 \\
-     90以上99未満  & 0 \\
-     100以上       & 0 \\
-     合計          & 100
-    \end{tabular}
-    \label{tab:hist}
+        \makeatletter
+        \def\@captype{table}
+        \makeatother
+        \centering
+        \caption{度数分布表}
+        \begin{tabular}{c|c}
+          階級          & 度数 \\ \hline
+          0以上9以下   & 0 \\
+          10以上19以下  & 0 \\
+          20以上29以下  & 0 \\
+          30以上39以下  & 1 \\
+          40以上49未満  & 6 \\
+          50以上59未満  & 22\\
+          60以上69未満  & 43\\
+          70以上79未満  & 20\\
+          80以上89未満  & 8 \\
+          90以上99未満  & 0 \\
+          100以上       & 0 \\
+          合計          & 100
+        \end{tabular}
+        \label{tab:hist}
     \end{minipage}
     \begin{minipage}{0.5\hsize}
-    \centering
-    \includegraphics[width=6cm]{chap1/hist.png}
-    \makeatletter
-    \def\@captype{figure}
-    \makeatother
-    \caption{ヒストグラム}
-  \label{fig:histogram}
-\end{minipage}
+        \centering
+        \includegraphics[width=6cm]{chap1/hist.png}
+        \caption{ヒストグラム}
+        \label{fig:histogram}
+    \end{minipage}
 \end{figure}
 
 \subsection{度数分布表}
@@ -201,57 +204,59 @@ Excelを用い，データ (表\ref{tab:sample})から図\ref{fig:freq}のよう
 
 \begin{enumerate}
     \item まず，図\ref{fig:before_freq}のA列のようにExcelにデータを入力します．
+    表\ref{tab:sample}のデータはfreq.csvに入っていますので，それを開くとA列にデータが表示されます．
     \item 次に階級を設定します．
     今回は，0から9，10から19，20から29，30から39，40から49，50から59，60から69，70から79，80から89，90から99，100以上という階級にします．
-    \item 度数分布表を図\ref{fig:before_freq})に作成します．
+    \item 度数分布表を図\ref{fig:before_freq}に作成します．
     ここではまだ度数は空欄になっています．
+    Excelの度数分布作成の機能の都合上，図\ref{fig:before_freq}のように階級の上限を階級の区切りとして入力しておきます．
     \item 図\ref{fig:select_cells_freq}のように度数を入力したいセルを選択します．
     \item 関数を入力するフォームに``=FREQUENCY(''と入力します．
     \footnote{``COUNTIFS''という関数を使っても度数分布表を作ることが可能です．}
     \item データを選択します．そうすると，図\ref{fig:select_data_freq}のようにデータがあるセル番号が入力されます．
-    \item ``,''を入力したあと，各階級の大きい数値が入力されたセルを選択します．そうすると，図\ref{fig:select_classes_freq}のようにセル番号が入力されます．
+    \item ``,''を入力したあと，各階級の上限が入力されたセル(今回は階級の区切の列)を選択します．そうすると，図\ref{fig:select_classes_freq}のようにセル番号が入力されます．
     \item ``)''を入力する．
     \item ここが重要です．Ctrl + Shift + Enterを押します．
-    \item 合計は先程用いた``sum''を用いて計算します．そうすると，図\ref{fig:before_freq}のような度数分布表が出来上がります．
+    \item 合計は先程用いた``sum''を用いて計算します．そうすると，図\ref{fig:freq}のような度数分布表が出来上がります．
 \end{enumerate}
 
 
 \begin{figure}[htbp]
     \begin{minipage}{0.5\hsize}
         \centering
-        \includegraphics[width=3cm]{chap1/freq.png}
-        \caption{Excelで作成した度数分布表}
-        \label{fig:freq}
-    \end{minipage}
-    \begin{minipage}{0.5\hsize}
-        \centering
         \includegraphics[width=6cm]{chap1/before_freq.png}
         \caption{Excelで作成した度数分布表}
         \label{fig:before_freq}
     \end{minipage}
-\end{figure}
-
-
-\begin{figure}[htbp]
     \begin{minipage}{0.5\hsize}
         \centering
         \includegraphics[width=4cm]{chap1/select_cells_freq.png}
         \caption{度数を入力するセルを選択した状態}
         \label{fig:select_cells_freq}
     \end{minipage}
+\end{figure}
+
+
+\begin{figure}[htbp]
     \begin{minipage}{0.5\hsize}
         \centering
-        \includegraphics[width=7cm]{chap1/select_data_freq.png}
+        \includegraphics[width=6cm]{chap1/select_data_freq.png}
         \caption{データを選択した状態}
         \label{fig:select_data_freq}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap1/select_classes_freq.png}
+        \caption{階級の区切りを選択した状態}
+        \label{fig:select_classes_freq}
     \end{minipage}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=6cm]{chap1/select_classes_freq.png}
-    \caption{階級を選択した状態}
-    \label{fig:select_classes_freq}
+    \includegraphics[width=3cm]{chap1/freq.png}
+    \caption{完成した度数分布表}
+    \label{fig:freq}
 \end{figure}
 
 \subsection{ヒストグラム}
@@ -261,10 +266,9 @@ Excelを用い，データ (表\ref{tab:sample})から図\ref{fig:freq}のよう
 作る手順は次のとおりです．\footnote{ヒストグラムもかき方が多々あるので各自の好みで．}
 
 \begin{enumerate}
-    \item リボンのInsert (挿入)を選びます．そうすると，グラフや図などの挿入ボタンがたくさん出てきます．
-    \item 図\ref{fig:select_cells_hist}のようにセルを選択します．
-    \item リボンの挿入を押します．
-    そして，リボンにある棒グラフアイコンを押し，図\ref{fig:select_barchart_hist}に示す棒グラフボタンを押します．
+    \item リボンの挿入を選びます．そうすると，グラフや図などの挿入ボタンがたくさん出てきます．
+    \item 図\ref{fig:select_cells_hist}のようにグラフにしたい数値の入ったセルを選択します．
+    \item リボンにある棒グラフアイコンを押し，図\ref{fig:select_barchart_hist}に示す棒グラフボタンを押します．
     そうするとヒストグラムが出来上がります．
     \item ヒストグラムの棒の幅を変えたい場合は，ヒストグラムの棒を図\ref{fig:select_bar_hist}のように選択し，図\ref{fig:select_width_hist}のGap Width (要素の間隔)を0にします．
     そうすると図\ref{fig:histogram}のようなヒストグラムが完成します．
@@ -317,4 +321,4 @@ glucoselevel.csvデータから度数分布表を書きなさい．ただし，�
 
 \section{レポート提出}
 
-レポートテンプレートを参考にに演習の結果にまとめ，kazuhisa.fujita@komatsu-u.ac.jpへ電子データとして提出しなさい．データ形式はpdfとする．レポートの提出期限は次回の講義日までとします
+レポートはreport1.docxの空欄を埋める形で作成し，kazuhisa.fujita@komatsu-u.ac.jpへ電子データで提出してください．データ形式はdocxもしくはpdfとします．レポートの提出期限は次回の講義日までとします．

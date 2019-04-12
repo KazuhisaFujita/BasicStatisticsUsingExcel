@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Since : 2019/04/03
-%Update: 2019/04/11
+%Update: 2019/04/12
 % -*- coding: utf-8 -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -211,7 +211,7 @@ Excelを用い，データ (表\ref{tab:sample})から図\ref{fig:freq}のよう
     ここではまだ度数は空欄になっています．
     Excelの度数分布作成の機能の都合上，図\ref{fig:before_freq}のように階級の上限を階級の区切りとして入力しておきます．
     \item 図\ref{fig:select_cells_freq}のように度数を入力したいセルを選択します．
-    \item 数式を入力するフォームに``=FREQUENCY(''と入力します．
+    \item 数式を入力するフォーム (数式バー) に``=FREQUENCY(''と入力します．
     \footnote{``COUNTIFS''という関数を使っても度数分布表を作ることが可能です．}
     \item データを選択します．そうすると，図\ref{fig:select_data_freq}のようにデータがあるセル番号が入力されます．
     \item ``,''を入力したあと，各階級の上限が入力されたセル(今回は階級の区切の列)を選択します．そうすると，図\ref{fig:select_classes_freq}のようにセル番号が入力されます．
@@ -322,3 +322,14 @@ glucoselevel.csvデータから度数分布表を書きなさい．ただし，�
 \section{レポート提出}
 
 レポートはreport1.docxの空欄を埋める形で作成し，kazuhisa.fujita@komatsu-u.ac.jpへ電子データで提出してください．データ形式はdocxもしくはpdfとします．レポートの提出期限は次回の講義日までとします．
+
+\section{おまけ}
+
+Excelのユーザーインターフェースを構成する各部分の名称は図\ref{fig:ui}のようになります．
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=3cm]{chap1/ui.png}
+    \caption{ユーザーインターフェース}
+    \label{fig:ui}
+\end{figure}

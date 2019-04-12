@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Since : 2019/04/03
-%Update: 2019/04/11
+%Update: 2019/04/12
 % -*- coding: utf-8 -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -58,7 +58,8 @@
 手順は前回のヒストグラムと同じです．表\ref{tab:uriage}に示すデータを棒グラフにしましょう．
 
 \begin{enumerate}
-    \item まず，棒グラフにしたいデータを図\ref{fig:bar1}のように選択します．
+    \item データを入力します．今回は図\ref{fig:bar1}のように入力してください．
+    \item 棒グラフにしたいデータを図\ref{fig:bar1}のように選択します．
     \item リボンの挿入を押します．
     そして，リボンにある棒グラフアイコンを押し，図\ref{fig:select_barchart_hist}に示す棒グラフボタンを押します．
     そうすると，図\ref{fig:bar3}のような棒グラフができます．
@@ -150,13 +151,14 @@
 表\ref{tab:uriage_suii}に示すデータを折れ線グラフにします．横軸を月，縦軸を売上金額とします．
 
 \begin{enumerate}
-    \item 図\ref{line_select_data}のように横軸のデータと縦軸のデータを選びます．
+    \item データを入力します．今回は図\ref{fig:line_select_data}のように入力してください．
+    \item 図\ref{fig:line_select_data}のように横軸のデータと縦軸のデータを選びます．
     値だけではなく商品名まで選択しました．
     そうするとグラフの線の説明(凡例)まで自動で入力されます
     \footnote{いつもうまくいくとは限りません．
       うまく凡例がつかなかったときは，値だけ選択してグラフをかきます．
       グラフを選択し，リボンのグラフのデザインを選び，グラフデータの選択をクリックします．
-      そうするとたなウインドウが出てくるので，そこの名前の欄に凡例を書き込みます．}．
+      そうするとウインドウが出てくるので，そのウインドウにある名前の欄に凡例を書き込みます．}．
     \item グラフの散布図の直線とマーカーを選びます
     \footnote{折れ線グラフを選んでもグラフはかけますが，軸の範囲が固定など面倒なことになります．今回は散布図にします．}．
     そうすると図\ref{fig:line1}のようなグラフがかけます．
@@ -192,7 +194,7 @@
 \begin{figure}[tb]
     \begin{minipage}{0.5\hsize}
         \centering
-        \includegraphics[width=6cm]{chap2/line_select_data.png}
+        \includegraphics[width=5cm]{chap2/line_select_data.png}
         \caption{データの選択}
         \label{fig:line_select_data}
     \end{minipage}
@@ -214,7 +216,7 @@
     \begin{minipage}{0.5\hsize}
         \centering
         \includegraphics[width=6cm]{chap2/line_hanrei.png}
-        \caption{作成されたグラフ}
+        \caption{凡例の位置}
         \label{fig:line_hanrei}
     \end{minipage}
 \end{figure}
@@ -254,13 +256,13 @@
         \centering
         \includegraphics[width=4cm]{chap2/line_label.png}
         \caption{軸のラベルを追加}
-        \label{fig:line_range}
+        \label{fig:line_label}
     \end{minipage}
     \begin{minipage}{0.5\hsize}
         \centering
         \includegraphics[width=6cm]{chap2/line4.png}
         \caption{作成されたグラフ4}
-        \label{fig:line3}
+        \label{fig:line4}
     \end{minipage}
 \end{figure}
 
@@ -271,14 +273,14 @@
 データの値同士の関係性を知りたいときがあります．
 値の関係性を見るために用いられます．
 例として，前回の演習で用いたアヤメのがく片の長さと幅 (iris.csv) の散布図(図\ref{fig:scatter})を示します．
-散布図は関係を見るデータ，例ではアヤメのがく片の長さと幅，をそれぞれ軸とします．
-そして，データの組み合わせ，例ではアヤメのがく片の長さと幅，を点で表します．
+散布図は関係を見るデータ，例ではアヤメのがく片の長さと幅をそれぞれ軸とします．
+そして，データの組み合わせ，例ではアヤメのがく片の長さと幅の組み合わせを点で表します．
 例の散布図を見ると，がく片の長さが長いほど幅が太くなる傾向がありそうなことが分かります．
 データそれぞれ無関係な場合は，点は垂直，水平，円に分布します．
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=6cm]{chap2/scatter.png}
+    \includegraphics[width=8cm]{chap2/scatter.png}
     \caption{散布図}
     \label{fig:scatter}
 \end{figure}
@@ -288,6 +290,7 @@
 散布図も他のグラフの書き方と同じですが，データの列を2つ選ぶ点が異なります．
 
 \begin{enumerate}
+    \item データを開きます．今回は，アヤメデータiris.csvを用います．
     \item 散布図にしたいデータを選びます (図\ref{fig:scatter_data})．
     \item リボンの挿入を押します．
     そして，リボンにある散布図アイコンを押し，図\ref{fig:scatter_menu}に示す散布図ボタンを押します．
@@ -332,7 +335,7 @@
         \centering
         \includegraphics[width=6cm]{chap2/scatter_menu.png}
         \caption{散布図を選択する}
-        \label{fig:select_barchart_hist}
+        \label{fig:scatter_menu}
     \end{minipage}
     \\
     \begin{minipage}{0.5\hsize}
@@ -392,7 +395,7 @@
     \label{eq:1}
     r = \frac{\frac{1}{N} \sum_{i=1}^N (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\frac{1}{N} \sum_{i=1}^N (x_i - \bar{x})^2} \sqrt{\frac{1}{N} \sum_{i=1}^N(y_i - \bar{y})^2}}
 \end{equation}
-相関係数は直線的な関係かどうかをみることができます．
+相関係数はデータ同士が直線的な関係かどうかをみることができます．
 相関係数が正の場合は正の相関，負の場合を負の相関と言います．
 正の相関の場合，一方のデータの値が増えれば，もう一方のデータの値も増えるという関係があることが分かります．
 負の相関の場合，一方のデータの値が増えれば，もう一方のデータの値は減るという関係があることが分かります．
@@ -404,6 +407,7 @@
 Excelで相関係数を求めるのは簡単です．前回の総和を求めたのと同じ要領で行います．しかし，今回は2列データがありますので，そこだけ注意しましょう．
 
 \begin{enumerate}
+    \item データを開きます．今回も先程用いたアヤメデータiris.csvを用います．
     \item 相関係数を入れるセルを選択します．
     \item ``=CORREL(''と入力します．
     \item 相関係数を求めたいデータの列を2つ選びます．
@@ -431,6 +435,7 @@ Excelで相関係数を求めるのは簡単です．前回の総和を求めた
 先程作成した散布図に回帰直線を追加します．
 
 \begin{enumerate}
+    \item 回帰直線を追加したい散布図を選びます．今回は，先ほど作成したアヤメデータの散布図に回帰直線を追加します．
     \item リボンの``グラフのデザイン''を選びます．
     \item 図\ref{fig:regression_menu}のように，近似曲線の線形予測を選びます．
     そうすると，図\ref{fig:regression}のような回帰直線がかかれます．
@@ -447,10 +452,10 @@ Excelで相関係数を求めるのは簡単です．前回の総和を求めた
 \section{演習}
 
 \practice
-temp\_city.csvファイルから棒グラフを作りなさい．ただし，横軸は都市，縦軸は気温にしなさい．
+temp\_city.csvファイルから棒グラフを作りなさい．ただし，横軸は都市，縦軸は気温(度)にしなさい．
 
 \practice
-2019年4月8日の小松市の気温データtemp.csvから折れ線グラフを作りなさい．ただし，横軸は時間 (時)，縦軸は気温 (度)にしなさい．
+2019年4月8日の小松市の気温データtemp.csvから折れ線グラフを作りなさい．ただし，横軸は時間(時)，縦軸は気温(度)にしなさい．
 
 \practice
 私鉄の資本金と従業員数のデータshitetsu.csvから散布図をかきなさい．ただし，横軸は資本金，縦軸は従業員数にしなさい

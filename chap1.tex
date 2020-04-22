@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Since : 2019/04/03
-%Update: 2020/04/09
+%Update: 2020/04/22
 % -*- coding: utf-8 -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -107,13 +107,13 @@ xslxファイルはExcel2007以降で標準的に用いられるファイルで�
 手順は次のとおりです．
 
 \begin{enumerate}
-    \item データを入力します．今回は，図\ref{fig:sum}のようにA列に1, 2, 3, 4, 5と入力しtください．
+    \item データを入力します．今回は，図\ref{fig:sum}のようにA列に1, 2, 3, 4, 5と入力してください．
     \item 総和を入力したいセルを選択する．
-    \item ``=sum(''と入力する．
+    \item ``=SUM(''と入力する．
     \item 総和を計算したいセルをマウスで選択する．
     そうすると``(''の後ろにセル番号が入力されます(図\ref{fig:sum})．
     また，データのセル番号を直接入力することで，マウスで選択する操作と同様のことができます．
-    例の場合では，セルA1からA5までの総和なので``=sum(A1:A5)''と書きます
+    例の場合では，セルA1からA5までの総和なので``=SUM(A1:A5)''と書きます
     \footnote{データを選択する方法はいくつかあります．
       皆さんの慣れた方法でやってください．}
     \footnote{Excelも自動でいろいろやってくれるので，閉じカッコが保管される場合もあります．
@@ -310,34 +310,112 @@ Excelを用い，データ (表\ref{tab:sample})から図\ref{fig:freq}のよう
 \end{figure}
 
 
-\subsection{COUNTIFを用いた集計処理}
+\subsection{COUNTIF，COUNTIFSを用いた集計処理}
 
 データの中から，ある条件に当てはまるものの数を数えたい場合があると思います．
-例えば，名簿から男女の数を求める場合です．
+例えば，表\ref{tab:countif}のような名簿から男女の数を求める場合です．
 このような場合は，``COUNTIF''という関数を使います．
+それではまず，表\ref{tab:countif}から，石川県出身者の人数を計算してみましょう．
+\begin{enumerate}
+    \item まず表\ref{tab:contif}に示すデータを図\ref{fig:countif}のように入力します．今回は，A列を番号，B列に出身県を入力します．
+    \item 図\ref{fig:countif}のように人数を入れる表を作ります．
+    \item まず石川県出身の人を数えたいので，人数を入れるセルに``COUNTIF(''と入力します．
+    \item 出身が書かれたセルをマウスで選択します．
+    そうすると``(''の後ろにセル番号が入力されます(図\ref{fig:select_cells_countif})．
+    また，データのセル番号を直接入力することで，マウスで選択する操作と同様のことができます．
+    この場合では，セルB2からB6までなので``=COUNTIF(B2:B6''と書きます．
+    \item カンマ``,''を入力します．
+    \item 図\ref{fig:operator_countif}のように条件を入力します．今回は石川県出身者の人数を数えるので，出身県のセルの内容が``石川と等しい''という条件になります．石川と等しいという条件はExcelでは，`` ``=石川`` ''と書かれます．``=''は演算子と呼ばれ，条件を表す記号です．演算子を変えることで，等しい以外に異なるなどの条件をつけることが可能です．使用できる演算子は表\ref{tab:countif_operator}に示します．
+    \item 条件を入力し終えると人数が表示されます．
+\end{enumerate}
+うまくできたら，富山県出身者と福井県出身者の人数も計算してみましょう．
 
+\begin{table}
 \begin{minipage}{0.5\hsize}
     \centering
     \makeatletter
     \def\@captype{table}
     \makeatother
-    \caption{代表値とExcelの関数}
-    \begin{tabular}{|c|c|}
-      番号    性別    出身県
-      1    男    石川
-      2    女    福井
-      3    女    富山
-      4    男    石川
-      5    男    岐阜
-      6    男    大阪
-      7    女    石川
-      8    女    大阪
-      9    女    石川
-      10    女    富山
+    \caption{データ}
+    \begin{tabular}{|c|c|c|}
+      番号& 出身県\\ \hline
+      1   & 石川  \\ \hline
+      2   & 福井  \\ \hline
+      3   & 富山  \\ \hline
+      4   & 石川  \\ \hline
+      5   & 岐阜  \\ \hline
+      6   & 福井  \\ \hline
+      7   & 石川  \\ \hline
+      8   & 大阪  \\ \hline
+      9   & 石川  \\ \hline
+      10  & 富山  \\ \hline
     \end{tabular}
-    \label{tab:hist}
+    \label{tab:countif}
 \end{minipage}
+\begin{minipage}{0.5\hsize}
+    \centering
+    \makeatletter
+    \def\@captype{table}
+    \makeatother
+    \caption{データ}
+    \begin{tabular}{|c|c|}
+      演算子 & 条件\\ \hline
+      =      & 同じ\\ \hline
+      <>     & 異なる\\ \hline
+      >      & より大きい\\ \hline
+      <      & より小さい\\ \hline
+      >=     & 以上\\ \hline
+      <=     & 以下\\ \hline
+    \end{tabular}
+    \label{tab:countif_operator}
+\end{minipage}
+\end{table}
 
+
+\begin{figure}[htbp]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=5cm]{chap1/countif.png}
+        \caption{エクセルで作成した表}
+        \label{fig:countif}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=5cm]{chap1/select_cells_countif.png}
+        \caption{COUNTIFを入力しセルを選んだ状態}
+        \label{fig:select_cells_countif}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[htbp]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=5cm]{chap1/operator_countif.png}
+        \caption{条件を入力した状態}
+        \label{fig:countif}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=5cm]{chap1/result_countif.png}
+        \caption{出力結果}
+        \label{fig:select_cells_countif}
+    \end{minipage}
+\end{figure}
+
+先の方法で，石川県出身者の人数を計算できました．では，石川県，富山県，福井県以外をその他として人数を計算した場合はどうすれば良いでしょうか?この場合，3県以外なので，それぞれの県に対して異なるという条件が必要になります．つまり，条件が3つ必要です．しかし，``COUNTIF''関数は数える条件を1つしか設定できませんでした．そこで，``COUNTIFS''を用います．``COUNTIF''と``COUNTIFS''の違いは，条件が一つか，複数かの違いです．
+
+\begin{enumerate}
+    \item その他の県出身者の人数を入れるセルに``COUNTIFS(''と入力します．
+    \item 出身が書かれたセルをマウスで選択します．
+    そうすると``(''の後ろにセル番号が入力されます．
+    また，データのセル番号を直接入力することで，マウスで選択する操作と同様のことができます．
+    この場合では，セルB2からB6までなので``=COUNTIFS(B2:B6''と書きます．
+    \item ``,''を入力します．
+    \item 石川以外という条件``"<>石川"''を入力し，``,''を入力します．
+    \item 富山以外という条件``"<>富山"''を入力し，``,''を入力します．
+    \item 福井以外という条件``"<>福井"''を入力し，``)''を入力します．
+    \item そうすると，入力した3条件をすべて満たすセルの数，すなわち，3県出身者以外の人数が計算されます．
+\end{enumerate}
 
 \section{演習}
 
@@ -355,6 +433,11 @@ glucoselevel.csvデータから度数分布表を書きなさい．ただし，�
 
 \practice
  演習3で作成した度数分布表に基づきヒストグラムをかきなさい．
+
+\practice
+第節でその他の県出身者の人数をCOUNTIFSで計算しました．実は，COUNTIFでも可能です．COUNTIFと四則演算だけでその他の県出身者の人数を計算できる数式を答えなさい．
+
+ヒント: $10-$COUNTIF(B2:B6, "=石川")は10人中石川県出身者以外の人数になります．
 
 \section{レポート提出}
 

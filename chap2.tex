@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Since : 2019/04/03
-%Update: 2019/04/23
+%Update: 2020/04/23
 % -*- coding: utf-8 -*-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -146,7 +146,7 @@
     \end{minipage}
 \end{figure}
 
-\subsection{折れ線グラフの作成}
+\paragraph{折れ線グラフの作成}
 
 表\ref{tab:uriage_suii}に示すデータを折れ線グラフにします．横軸を月，縦軸を売上金額とします．
 
@@ -266,14 +266,127 @@
     \end{minipage}
 \end{figure}
 
+\subsection{円グラフ}
+
+前回，表\ref{tab:countif}から出身県ごとの人数を計算しました．では，各出身県出身者の人数の全体の割合がどの様になっているのか視覚的に分かりやすくするにはどうすればよいでしょうか．このようなときは，円グラフを用います．
+円グラフは，円を扇型に分割し，その扇型に割当てられた割合の大きさに応じ扇型の角度を決めたものです．
+扇型に割り当てられた割合をすべて足すと1(100\%)になります．
+逆に言えば，円一周で1にならなければなりません．
+図\ref{fig:piechart}は表\ref{tab:countif}から作成した出身県の人数の割合を表す円グラフです．
+
+\begin{figure}
+\begin{minipage}{0.5\hsize}
+    \centering
+    \makeatletter
+    \def\@captype{table}
+    \makeatother
+    \caption{データ}
+    \begin{tabular}{|c|c|c|}
+      \hline
+      番号& 出身県\\ \hline
+      1   & 石川  \\ \hline
+      2   & 福井  \\ \hline
+      3   & 富山  \\ \hline
+      4   & 石川  \\ \hline
+      5   & 岐阜  \\ \hline
+      6   & 福井  \\ \hline
+      7   & 石川  \\ \hline
+      8   & 大阪  \\ \hline
+      9   & 石川  \\ \hline
+      10  & 富山  \\ \hline
+    \end{tabular}
+    \label{tab:countif}
+\end{minipage}
+\begin{minipage}{0.5\hsize}
+    \centering
+    \includegraphics[width=6cm]{chap2/piechart.png}
+    \caption{円グラフ}
+    \label{fig:piechart}
+\end{minipage}
+\end{figure}
+
+
+\paragraph{円グラフの作成}
+
+表\ref{tab:countif}に示すデータから出身券の割合を円グラフにします．
+
+\begin{enumerate}
+    \item 前回行ったCOUNTIF，COUNTIFSの演習で作成したエクセルファイルを開きます．そのファイルにはすでに図\ref{fig:piechart_data}のように各県の出身者が計算されているはずです．
+    \item 図\ref{fig:piechart_select_data}のように円グラフにしたい系列と値を選びます．
+    \item リボンの挿入を押します．そしてグラフアイコンの中で円グラフを押すと図\ref{fig:piechart_menu}のように表示されます．その中で2D円の左端のものをクリックします．
+    そうすると，図\ref{fig:piechart_plain}のようなグラフができます．
+    \item この状態では，グラフに割合が入っていないなど味気ないですね．そこで次に，グラフに割合を表示させましょう．まず，グラフをクリックし，リボンのグラフのデザインをクリックします．そして，グラフ要素を追加をクリックし，マウスカーソルをデータラベルに移動させると，図\ref{fig:piechart_label_menu}のように表示されます．ここでは中央を選びます．そうすると，グラフが図\ref{fig:piechart_labeled}のようにグラフに人数が表示されます．
+    \item 人数ではなく割合(パーセンテージ)に表示を変えます．変えるには，人数を選び右クリックをします．そうすると，図\ref{fig:piechart_select_label_option}のように表示されるので，それのデータラベルの書式設定をクリックします．そうすると，ウインドウの右端に図\ref{fig:piechart_label_option}が表示されます．図のように，分類名，パーセンテージにチェックを入れます．今回は，引き出し線はチェックしてもしなくても良いです．
+    \item 最後に，タイトルを編集します．グラフ タイトルをダブルクリックし，出身県に変えます．そうすると，図\ref{fig:pichart}が完成します．
+\end{enumerate}
+
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=5cm]{chap2/piechart_data.png}
+        \caption{ファイルを開いた状態}
+        \label{fig:piechart_data}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/piechart_select_data.png}
+        \caption{データを選択した状態}
+        \label{fig:piechart_select_data}
+    \end{minipage}
+\end{figure}
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=5cm]{chap2/piechart_menu.png}
+        \caption{リボン内の円グラフのアイコン}
+        \label{fig:piechart_menu}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/piechart_plain.png}
+        \caption{できた円グラフ}
+        \label{fig:piechart_plain}
+    \end{minipage}
+\end{figure}
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=5cm]{chap2/piechart_label_menu.png}
+        \caption{リボン内のラベルメニュー}
+        \label{fig:piechart_menu}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/piechart_labeled.png}
+        \caption{人数が記入された円グラフ}
+        \label{fig:piechart_labeled}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[tb]
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=5cm]{chap2/piechart_select_label_option.png}
+        \caption{ラベルの書式設定を選ぶ}
+        \label{fig:piechart_select_label_option}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+        \centering
+        \includegraphics[width=6cm]{chap2/piechart_label_option.png}
+        \caption{ラベルの書式設定}
+        \label{fig:piechart_label_option}
+    \end{minipage}
+\end{figure}
+
+
 \subsection{散布図}
 
 \paragraph{散布図とは}
 
 データの値同士の関係性を知りたいときがあります．
-値の関係性を見るために用いられます．
+散布図は値の関係性を見るために用いられます．
 例として，前回の演習で用いたアヤメのがく片の長さと幅 (iris.csv) の散布図(図\ref{fig:scatter})を示します．
-散布図は関係を見るデータ，例ではアヤメのがく片の長さと幅をそれぞれ軸とします．
+散布図では関係を見るデータ，例ではアヤメのがく片の長さと幅をそれぞれ軸とします．
 そして，データの組み合わせ，例ではアヤメのがく片の長さと幅の組み合わせを点で表します．
 例の散布図を見ると，がく片の長さが長いほど幅が太くなる傾向がありそうなことが分かります．
 データそれぞれ無関係な場合は，点は垂直，水平，円に分布します．
@@ -456,6 +569,9 @@ temp\_city.csvファイルから棒グラフを作りなさい．ただし，横
 
 \practice
 2019年4月8日の小松市の気温データtemp.csvから折れ線グラフを作りなさい．ただし，横軸は時間(時)，縦軸は気温(度)にしなさい．
+
+\practice
+2020年4月21日までの石川県内のコロナウイルス感染者情報COVID-19\_Ishikawa.csv\footnote{SIGNATEのCOVID-19 Challengeで作成されているデータを用いました．https://signate.jp/competitions/261}から，感染者の男女の割合を円グラフで表しなさい．
 
 \practice
 私鉄の資本金と従業員数のデータshitetsu.csvから散布図をかきなさい．ただし，横軸は資本金，縦軸は従業員数にしなさい

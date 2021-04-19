@@ -42,7 +42,7 @@ csvファイルは，Comma-Separated Valuesファイルの略です．
 csvファイルはExcelなど表計算ソフトが入っていれば，表計算ソフトに関連付けされています．
 ただし，csvファイルはあくまでも単なるテキストファイルですので，表計算ソフトによる関数による自動計算，作成したグラフ，文字の装飾，表の罫線などは保存されません．
 xlsxファイルはExcel2007以降で標準的に用いられるファイルです．データだけではなく，関数による自動計算，作成したグラフ，文字の装飾，表の罫線なども保存されます．
-この演習では，データをxlsxファイルとcsvファイルで提供します．
+{\bf この演習では，データをxlsxファイルとcsvファイルで提供します\footnote{場所:https://github.com/KazuhisaFujita/BasicStatisticsUsingExcel/tree/master/data}．}
 
 \section{統計量}
 
@@ -245,13 +245,13 @@ Excelを用い，データ (表\ref{tab:sample})から図\ref{fig:freq}のよう
 \begin{figure}[htbp]
     \begin{minipage}{0.5\hsize}
         \centering
-        \includegraphics[width=6cm]{chap1/select_data_freq.png}
+        \includegraphics[width=5cm]{chap1/select_data_freq.png}
         \caption{データを選択した状態}
         \label{fig:select_data_freq}
     \end{minipage}
     \begin{minipage}{0.5\hsize}
         \centering
-        \includegraphics[width=6cm]{chap1/select_classes_freq.png}
+        \includegraphics[width=5cm]{chap1/select_classes_freq.png}
         \caption{階級の区切りを選択した状態}
         \label{fig:select_classes_freq}
     \end{minipage}
@@ -309,15 +309,16 @@ Excelを用い，データ (表\ref{tab:sample})から図\ref{fig:freq}のよう
     \end{minipage}
 \end{figure}
 
+\clearpage
 
 \subsection{COUNTIF，COUNTIFSを用いた集計処理}
 
 データの中から，ある条件に当てはまるものの数を数えたい場合があると思います．
-例えば，表\ref{tab:countif}のような名簿から男女の数を求める場合です．
+例えば，表\ref{tab:countif_data}のような名簿から出身県の人数(表\ref{tab:home})を求める場合です．
 このような場合は，COUNTIFという関数を使います．
-それではまず，表\ref{tab:countif}から，石川県出身者の人数を計算してみましょう．
+それではまず，表\ref{tab:countif_data}から，石川県出身者の人数を計算してみましょう．
 \begin{enumerate}
-    \item まず表\ref{tab:contif}に示すデータを図\ref{fig:countif}のように入力します．今回は，A列を番号，B列に出身県を入力します．
+    \item 表\ref{tab:countif_data}に示すデータを図\ref{fig:countif}のように入力します．今回は，A列を番号，B列に出身県を入力します．
     \item 図\ref{fig:countif}のように人数を入れる表を作ります．
     \item まず石川県出身の人を数えたいので，人数を入れるセルに``COUNTIF(''と入力します．
     \item 出身が書かれたセルをマウスで選択します．
@@ -331,7 +332,7 @@ Excelを用い，データ (表\ref{tab:sample})から図\ref{fig:freq}のよう
 うまくできたら，富山県出身者と福井県出身者の人数も計算してみましょう．
 
 \begin{table}
-\begin{minipage}{0.5\hsize}
+\begin{minipage}{0.32\hsize}
     \centering
     \makeatletter
     \def\@captype{table}
@@ -351,14 +352,31 @@ Excelを用い，データ (表\ref{tab:sample})から図\ref{fig:freq}のよう
       9   & 石川  \\ \hline
       10  & 富山  \\ \hline
     \end{tabular}
-    \label{tab:countif}
+    \label{tab:countif_data}
 \end{minipage}
-\begin{minipage}{0.5\hsize}
+\begin{minipage}{0.32\hsize}
     \centering
     \makeatletter
     \def\@captype{table}
     \makeatother
-    \caption{データ}
+    \caption{県別人数}
+    \begin{tabular}{|c|c|}
+      \hline
+      出身県   & 人数\\ \hline
+      石川     & 4\\ \hline
+      富山     & 2\\ \hline
+      福井     & 2\\ \hline
+      その他   & 2\\ \hline
+      合計     & 10\\ \hline
+    \end{tabular}
+    \label{tab:home}
+\end{minipage}
+\begin{minipage}{0.32\hsize}
+    \centering
+    \makeatletter
+    \def\@captype{table}
+    \makeatother
+    \caption{演算子}
     \begin{tabular}{|c|c|}
       \hline
       演算子 & 条件\\ \hline
@@ -404,7 +422,9 @@ Excelを用い，データ (表\ref{tab:sample})から図\ref{fig:freq}のよう
     \end{minipage}
 \end{figure}
 
-先の方法で，石川県出身者の人数を計算できました．では，石川県，富山県，福井県以外をその他として人数を計算した場合はどうすれば良いでしょうか?この場合，3県以外なので，それぞれの県に対して異なるという条件が必要になります．つまり，条件が3つ必要です．しかし，COUNTIF関数は数える条件を1つしか設定できませんでした．そこで，COUNTIFSを用います．COUNTIFとCOUNTIFSの違いは，条件が一つか，複数かの違いです．
+\clearpage
+
+先の方法で，石川県，富山県，福井県それぞれの出身者の人数を計算できました．では，石川県，富山県，福井県以外をその他として人数を計算した場合はどうすれば良いでしょうか?この場合，3県以外なので，それぞれの県に対して異なるという条件が必要になります．つまり，条件が3つ必要です．しかし，COUNTIF関数は数える条件を1つしか設定できませんでした．そこで，COUNTIFSを用います．COUNTIFとCOUNTIFSの違いは，条件が一つか，複数かの違いです．
 \begin{enumerate}
     \item その他の県出身者の人数を入れるセルに``COUNTIFS(''と入力します．
     \item 出身が書かれたセルをマウスで選択します．
@@ -437,7 +457,7 @@ glucoselevel.xlsxデータから度数分布表を書きなさい．ただし，
  演習3で作成した度数分布表に基づきヒストグラムをかきなさい．
 
 \practice
-第節でその他の県出身者の人数をCOUNTIFSで計算しました．実は，COUNTIFでも可能です．COUNTIFと四則演算だけでその他の県出身者の人数を計算できる数式を答えなさい．
+第5.4節の最後に，その他の県出身者の人数をCOUNTIFSで計算しました．実は，COUNTIFSを持ちなくとも計算できます．COUNTIFSを使わず5.4節で用いたデータからその他の県出身者の人数を計算できる数式を答えなさい．ただし，出身県はB2からB6セルに書かれ，石川県，富山県，福井県の出身者の人数はそれぞれE2，E3，E4に書かれているとします．
 
 ヒント: $10-$COUNTIF(B2:B6, "=石川")は10人中石川県出身者以外の人数になります．
 

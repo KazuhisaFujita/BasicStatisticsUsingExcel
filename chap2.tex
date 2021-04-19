@@ -77,7 +77,7 @@
     \end{enumerate}
 \end{enumerate}
 
-\begin{figure}[tb]
+\begin{figure}[b]
     \begin{minipage}{0.5\hsize}
         \centering
         \includegraphics[width=4cm]{chap2/bar1.png}
@@ -107,6 +107,7 @@
     \end{minipage}
 \end{figure}
 
+\clearpage
 
 \subsection{折れ線グラフ}
 
@@ -266,6 +267,8 @@
     \end{minipage}
 \end{figure}
 
+\clearpage
+
 \subsection{円グラフ}
 
 前回，表\ref{tab:countif}から出身県ごとの人数を計算しました．では，各出身県出身者の人数の全体の割合がどの様になっているのか視覚的に分かりやすくするにはどうすればよいでしょうか．このようなときは，円グラフを用います．
@@ -299,7 +302,7 @@
 \end{minipage}
 \begin{minipage}{0.5\hsize}
     \centering
-    \includegraphics[width=6cm]{chap2/piechart.png}
+    \includegraphics[width=4cm]{chap2/piechart.png}
     \caption{円グラフ}
     \label{fig:piechart}
 \end{minipage}
@@ -372,7 +375,7 @@
     \end{minipage}
     \begin{minipage}{0.5\hsize}
         \centering
-        \includegraphics[width=6cm]{chap2/piechart_label_option.png}
+        \includegraphics[width=3cm]{chap2/piechart_label_option.png}
         \caption{ラベルの書式設定}
         \label{fig:piechart_label_option}
     \end{minipage}
@@ -400,6 +403,7 @@
 
 \paragraph{散布図の作成}
 
+それでは，散布図を実際に描いてみましょう．
 散布図も他のグラフの書き方と同じですが，データの列を2つ選ぶ点が異なります．
 
 \begin{enumerate}
@@ -537,10 +541,18 @@ Excelで相関係数を求めるのは簡単です．前回の総和を求めた
 もう少し簡単に言えば，2つのデータの関係を直線の式$y=ax+b$に強制的に表したものです\footnote{直線近似の方法は，この講義の範疇を超えているので説明しません．興味がある人は調べてみましょう．}．
 
 \begin{figure}[htbp]
+    \begin{minipage}{0.5\hsize}
     \centering
     \includegraphics[width=6cm]{chap2/regression.png}
     \caption{散布図と回帰直線}
     \label{fig:regression}
+    \end{minipage}
+    \begin{minipage}{0.5\hsize}
+    \centering
+    \includegraphics[width=4cm]{chap2/regression_menu.png}
+    \caption{散布図}
+    \label{fig:regression_menu}
+    \end{minipage}
 \end{figure}
 
 \paragraph{回帰直線の作成}
@@ -554,13 +566,6 @@ Excelで相関係数を求めるのは簡単です．前回の総和を求めた
     そうすると，図\ref{fig:regression}のような回帰直線がかかれます．
     軸の範囲が変わった場合は，見やすいように変更しましょう．
 \end{enumerate}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=6cm]{chap2/regression_menu.png}
-    \caption{散布図}
-    \label{fig:regression_menu}
-\end{figure}
 
 \section{演習}
 
